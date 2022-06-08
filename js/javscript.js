@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+   
     
     $('#Enregistrer').click(function(){
 
@@ -41,6 +43,7 @@ $(document).ready(function(){
         $(spanDate).addClass('dateDeFin');
         $(spanDate).attr('data-date',msgDate);
         $(spanDate).html('En retard');
+       
 
         //mise en forme du span description
         $(spanDescription).addClass('description');
@@ -52,10 +55,35 @@ $(document).ready(function(){
         listeli.appendChild(spanDate);
         listeli.appendChild(spanDescription);
         UL.appendChild(listeli);
+        potitefnt();
+
     })
 
 
+    $('.checkbox').click(function(){
+        let checkbox = $('.checkbox');
+        let liste = document.getElementById('liste').querySelectorAll('li');
+        for (let i=0; i<$(checkbox).length; i++) {
+            let checkboxI =checkbox[i];
+            let listeTitres =liste[i].querySelector('.titres');
+            if($(checkboxI).is(':checked')){
+                $(listeTitres).addClass('textBarre');
+            }else{
+                $(listeTitres).removeClass('textBarre');
+            }
+        }
+    })
 
+    function potitefnt(){
+        var CurrentDate = new Date();
+        var SelectedDate = new Date($("[data-date]"));
+   
+        if(CurrentDate > SelectedDate) {
+            $(".dateDeFin").show();
+        } else {
+                $(".dateDeFin").hide();
+        }
+    };
 
     /* ESPACE pour toto*/
     
@@ -64,22 +92,15 @@ $(document).ready(function(){
     });
 
 
-/*
+    setInterval(potitefnt,5*60*1000);
 
-    $('.dateDeFin').ready(function(){
-        var CurrentDate = new Date();
-        var SelectedDate = new Date($("[data-date]"));
-
-        if(CurrentDate > SelectedDate) {
-            $(".dateDeFin").show();
-        } else {
-                $(".dateDeFin").hide();
-        }
+    $('.titres').mouseenter(function (){
+        $(this).next().next().show();
     });
-*/
-
-
-
+    
+    $('.titres').mouseleave(function (){
+        $(this).next().next().hide();
+    });
 
 ///Ne pas supprimer    
 });

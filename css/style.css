@@ -4,17 +4,33 @@
 
 h1{
 font-size: 50px;
-font-family: 'Comic Sans MS' ;
+font-family: 'Century Gothic' ;
 color: black;
-text-decoration: underline;
+font-weight: bold;
+letter-spacing: 1,5px;
+}
+
+.checkbox {
+padding: 5px;
+transform: rotate(345deg) scale(1.75);
+
+cursor : pointer;
+margin-right:10px;
+}
+
+.textBarre{
+    text-decoration: line-through; 
+    /*HUGROS PD*/
 }
 
 
-.checkbox + .titres{
-padding: 5px;
-transform: rotate(345deg) scale(1.75);
-text-decoration: line-through;
-cursor : pointer;
+ul li:hover { /*background plus foncé */
+  background: #ddd; 
+width: 87%;
+}
+
+.fa-solid {
+color : green;
 }
 
 
@@ -28,14 +44,11 @@ cursor : pointer;
 .dateDeFin {
     font-weight: bold;
 }
-
-
-.description {
-    display: none;
+.description{
+    display:none;
 }
-
 .titres:hover + .description{
-    display: block;
+    display: content;
     color: blue;
     font-size: 12px;
     font-style: italic;
@@ -47,6 +60,13 @@ cursor : pointer;
 	background-color: red;
      color: white;
 	 border-color: black;
+     
+}
+
+#Supprimer{
+    float: right;
+    margin-right: 50px;
+    margin-top: -50px;
 }
 
 #Enregistrer:hover{
@@ -54,6 +74,12 @@ cursor : pointer;
      color: white;
 	 border-color: black;
 }
+
+#Enregistrer{
+    float: right;
+    margin-right: 50 px;
+}
+
 
 
 .prioBasse{
@@ -65,12 +91,11 @@ cursor : pointer;
 
 
 .hr {
-    width: 100%;
+    width: 85%;
     height: 5px;
     background-color: black;
-    margin: 10px 0px;
-    margin-top: 30px;
 }
 h2 {
+    font-family: "Century Gothic";
     margin-top: 30px;
 }

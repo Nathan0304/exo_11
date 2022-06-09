@@ -28,15 +28,15 @@ $(document).ready(function(){
         let msgDate = date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear();
         
         //met en forme la balise li
-        $(listeli).addClass(priorite);
         $(listeli).attr('id', lastId);
+        $(listeli).addClass(priorite);
 
         //mise en forme de la checkbox
         $(inputCheckbox).attr('type',"checkbox");
         $(inputCheckbox).addClass("checkbox");
 
         //mise en forme du span titre
-        $(spanTitre).addClass('Titres');
+        $(spanTitre).addClass('titres');
         $(spanTitre).html(titre);
 
         //mise en forme du span date 
@@ -50,17 +50,17 @@ $(document).ready(function(){
         $(spanDescription).html(description);
 
         //ajout des elements ensemble
-        listeli.appendChild(inputCheckbox);
-        listeli.appendChild(spanTitre);
-        listeli.appendChild(spanDate);
-        listeli.appendChild(spanDescription);
-        UL.appendChild(listeli);
+        $(listeli).append($(inputCheckbox));
+        $(listeli).append($(spanTitre));
+        $(listeli).append($(spanDate));
+        $(listeli).append($(spanDescription));
+        $(UL).append($(listeli));
         potitefnt();
 
     })
 
 
-    $('.checkbox').click(function(){
+    $( "#liste" ).on( "click", '.checkbox',function(){
         let checkbox = $('.checkbox');
         let liste = document.getElementById('liste').querySelectorAll('li');
         for (let i=0; i<$(checkbox).length; i++) {
@@ -77,7 +77,6 @@ $(document).ready(function(){
     function potitefnt(){
         var CurrentDate = new Date();
         var SelectedDate = new Date($("[data-date]"));
-   
         if(CurrentDate > SelectedDate) {
             $(".dateDeFin").show();
         } else {
@@ -86,23 +85,24 @@ $(document).ready(function(){
     };
 
     /* ESPACE pour toto*/
-    
     $('#Supprimer').click(function(){
+        console.log('patate')
         $("#liste input:checked").parent('li').remove();
     });
 
 
     setInterval(potitefnt,5*60*1000);
 
-    $('.titres').mouseenter(function (){
+    $("#liste").on('mouseenter',".titres",function (){
+        console.log('patate')
         $(this).next().next().show();
     });
-    
-    $('.titres').mouseleave(function (){
+    $("#liste").on('mouseleave',".titres",function (){
         $(this).next().next().hide();
     });
 
-///Ne pas supprimer    
+///Ne pas supprimer
+    potitefnt()
 });
 
 

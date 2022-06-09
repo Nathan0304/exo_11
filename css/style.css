@@ -54,8 +54,6 @@ color : green;
     font-style: italic;
 }
 
-
-
 #Supprimer:hover{
 	background-color: red;
      color: white;
@@ -99,3 +97,4 @@ h2 {
     font-family: "Century Gothic";
     margin-top: 30px;
 }
+
